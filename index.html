@@ -19,13 +19,23 @@
   </head>
   <body>
     <header id="header">
-      <nav class="container">
+      <nav class="container show">
         <!--NAVIGATION vai ter elementos de clik-->
-        <h1>
+        <h2 class="title">
           <a class="logo" href="">beauty<span>salon.</span></a>
-        </h1>
+        </h2>
         <!--Span deixa os elementos alinhados-->
-        <div class="menu">...</div>
+        <div class="menu"><!--Menu-->
+          <ul class="grid">
+           <li><a class="title" href="#home">Início</a></li> <!--O # como Id, quando o link é clicado e movido para a seção do link-->
+           <li><a class="title" href="#about">Sobre</a></li>
+           <li><a class="title" href="#services">Serviços</a></li>
+           <li><a class="title" href="#testimonials">Depoimentos</a></li>
+           <li><a class="title" href="#contact">Contato</a></li>
+          </ul>
+        </div><!-- /Menu -->
+        <div class="open">...</div>
+        <div class="close">x</div>
       </nav>
     </header>
 
@@ -39,7 +49,7 @@
           />
           </div>
           <div class="text">
-            <h1>Saúde natural para os seus cabelos</h1>
+            <h2 class="title">Saúde natural para os seus cabelos</h2>
             <p>
               Um salão exclusivo em São Paulo, especializado em tratamentos
               naturais.
@@ -49,10 +59,14 @@
         </div>
       </section>
 
-      <div class="divider-1">
+      <div class="divider-1"></div>
 
-      </div>
-      <section class="section">Outra section</section>
-    </main>
+      <section class="section" id="about">
+        <div class="container grid">Sobre</div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container grid">Serviços</div>
+      </section>
   </body>
 </html>

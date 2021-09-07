@@ -5,6 +5,10 @@
   box-sizing: border-box; /*Reseta o comportameto para ser cauculado a partir da borda das caixas*/
 }
 
+ul {
+  list-style: none;/*Retirando todos os pontinhos dos menus*/
+}
+
 img {
   width: 100%;/*Toda imagem deve seguir 100% de larura*/
   height: auto;/*Toda imagem deve ter a autura automatica*/
@@ -37,7 +41,7 @@ body {
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;/*A propriedade CSS controla a aplicação de suavização de borda quando as fontes são renderizadas.webkit: se o navegador é um tipo webkit(o Google chrome está abilitado o webkit não esta abilitado em todos os navegadores) font-smooth = suavização de fonte / antialiased = suavizado*/
 }
-h1 {
+.title {
   font: 700 1.875rem 'Poppins', sans-serif;
   color: var(--title-color);
   -webkit-font-smoothing: auto;/*A propriedade CSS controla a aplicação de suavização de borda quando as fontes são renderizadas.webkit: se o navegador é um tipo webkit(o Google chrome está abilitado o webkit não esta abilitado em todos os navegadores)*/
@@ -81,13 +85,11 @@ h1 {
   background: var(--body-color);
 }
 
-nav { /*Navegação*/
-  height: var(--header-height); /*Altura: 4.5rem -- rem(Unidade de medida RELATIVA - ou seja RESPONSIVA) 72px/16=4,5rem (r = root, em= element)*/
-  align-items: center;/*Alinhamento de itens*/
-  display: flex; /*Define o elemento como um flex container, tornando os seus filhos flex-itens.*/
-  justify-content: space-between;/*Justificando o conteudo: espaço entre*/
-  width: 100%;
+main {
+  margin-top: calc(var(--header-height) + 2rem); /*calc  faz um função (cálculo)*/
 }
+
+/*============LOGO===============*/
 
 .logo {
   font: 700 1.31rem 'Poppins', sans-serif;
@@ -98,9 +100,49 @@ nav { /*Navegação*/
   color: var(--base-color);
 }
 
-main {
-  margin-top: var(--header-height);
+/*============NAVIGATION===============*/
+
+nav { /*Navegação*/
+  height: var(--header-height); /*Altura: 4.5rem -- rem(Unidade de medida RELATIVA - ou seja RESPONSIVA) 72px/16=4,5rem (r = root, em= element)*/
+  align-items: center;/*Alinhamento de itens*/
+  display: flex; /*Define o elemento como um flex container, tornando os seus filhos flex-itens.*/
+  justify-content: space-between;/*Justificando o conteudo: espaço entre*/
+  width: 100%;
 }
+
+
+nav ul li {
+  text-align: center;
+}
+
+nav .menu{
+  opacity: 0;/*Opacidade*/
+  visibility: hidden; /*visibility:hidden deixa de mostrar o elemento, ou seja, ele deixa de ser visível na página mas seu espaço continua ocupado, ou seja, o layout da página não é alterado por causa disto. É como você apagasse uma luz ali mas a lâmpada continua lá.*/
+}
+
+/* Só será usado esses style quando for mostrado o menu.Quando for acrescentado a classe show*/
+nav.show .menu {/*nav receber uma classe show*/
+  opacity: 1;
+  visibility: visible;/*visible (A caixa do elemento é visíve)*/
+
+  background: var(--body-color);
+  height: 100vh; /*Vh (viewport height = altura da janela de visualização) 100 pedaços da viewport*/
+  width: 100vw;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+nav.show .menu{
+  display: grid;
+  place-content: center; /*Centraliza todos os itens no centro da tela*/
+}
+
+nav.show ul.grid { 
+  gap: 4rem;
+}
+
 
 /*============HOME===============*/
 .container {
