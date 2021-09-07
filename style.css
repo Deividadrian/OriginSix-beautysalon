@@ -1,0 +1,166 @@
+/*============RESET===============*/
+* {
+  margin: 0; /*Resetando os espaços de todos os elementos*/
+  padding: 0; /*Resetando o preenchimento interno*/
+  box-sizing: border-box; /*Reseta o comportameto para ser cauculado a partir da borda das caixas*/
+}
+
+img {
+  width: 100%;/*Toda imagem deve seguir 100% de larura*/
+  height: auto;/*Toda imagem deve ter a autura automatica*/
+}
+
+a {
+  text-decoration: none;/*Resetando as cores de todos os links*/
+}
+
+/*============VARIABLES===============*/
+:root {
+  --header-height: 4.5rem;
+
+  /* colors */
+  --hue: 159;
+  /* HSL color mode */
+  --base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+}
+
+/*============BASE===============*/
+body {
+  font: 400 1rem 'DM Sans' , sans-serif; /*400 peso da fonte - 1rem tamanho normal da fonte - */
+  background: var(--body-color);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;/*A propriedade CSS controla a aplicação de suavização de borda quando as fontes são renderizadas.webkit: se o navegador é um tipo webkit(o Google chrome está abilitado o webkit não esta abilitado em todos os navegadores) font-smooth = suavização de fonte / antialiased = suavizado*/
+}
+h1 {
+  font: 700 1.875rem 'Poppins', sans-serif;
+  color: var(--title-color);
+  -webkit-font-smoothing: auto;/*A propriedade CSS controla a aplicação de suavização de borda quando as fontes são renderizadas.webkit: se o navegador é um tipo webkit(o Google chrome está abilitado o webkit não esta abilitado em todos os navegadores)*/
+}
+
+.button{
+  background: var(--base-color);
+  color: var(--text-color-light);
+  height: 3.5rem;
+  width: 13.37rem;
+  display: inline-flex;/*A tag (a) tem uma propriedade por padrão (isplay: inline) que não permite alterar a altura e largura  assim como a tag (span) */
+  align-items: center; /*Desbloqueado pelo flex do display: inline-flex acima */
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 500 1rem "DM Sans", sans-serif;
+  transition: backgroud 0.3s; /*Transição permitida apos usar o :hover / transition = transição / backgroud = fundo/ 0.3s tempo de transição*/
+}
+
+.button:hover {/*hover - Elemento com o mouse posicionado sobre ele*/
+  background: var(--base-color-alt);
+}
+
+.divider-1 {
+  height: 1px;
+  background: linear-gradient(
+  270deg, 
+  hsla(var(--hue)159, 36%, 57%, 1) 0%, 
+  hsla(var(--hue)159, 65%, 88%, 0.34) 100% );/*linear-gradient é uma função que cria uma imagem que consiste em uma transição progressiva entre duas ou mais cores ao longo de uma linha reta. Seu resultado é um objeto do tipo de dados, que é um tipo especial de .linear-gradient()*/
+}
+/*============LAYOUT===============*/
+#header {
+  border-bottom: 1px solid #E4E4E4; /*Borda (border) a Baixo (bottom)*/
+  margin-bottom: 2rem;
+  display: flex;
+
+  width: 100%;
+  position: fixed; /*Posição ficha do header*/
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: var(--body-color);
+}
+
+nav { /*Navegação*/
+  height: var(--header-height); /*Altura: 4.5rem -- rem(Unidade de medida RELATIVA - ou seja RESPONSIVA) 72px/16=4,5rem (r = root, em= element)*/
+  align-items: center;/*Alinhamento de itens*/
+  display: flex; /*Define o elemento como um flex container, tornando os seus filhos flex-itens.*/
+  justify-content: space-between;/*Justificando o conteudo: espaço entre*/
+  width: 100%;
+}
+
+.logo {
+  font: 700 1.31rem 'Poppins', sans-serif;
+  color: var(--title-color);
+}
+
+.logo span {
+  color: var(--base-color);
+}
+
+main {
+  margin-top: var(--header-height);
+}
+
+/*============HOME===============*/
+.container {
+  margin-left: 1.5rem; /*margin-left(direito)*/
+  margin-right: 1.5rem; /*margin-right(esquerdo)*/
+}
+
+.grid {
+  display: grid;/*Vai abilitar novas funcionalidades no CSS para deixar mais flexivel*/
+  gap: 2rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+#home {
+  overflow: hidden;/*overflow = quando o conteúdo de um elemento é muito grande para caber em seu contexto de formatação de bloco - em ambas as direções/ hidden = O conteúdo é cortado, se necessário, para caber na caixa de preenchimento. Nenhuma barra de rolagem é fornecida e nenhum suporte para permitir que o usuário role (como arrastando ou usando uma roda de rolagem) é permitido*/
+}
+#home .container {
+  margin: 0;
+}
+
+#home .image {
+  position: relative;
+}
+
+#home .image::before {/*A declaração do pseudo-elemento ::before em um seletor cria um falso elemento (um elemento fictício) que nos permite adicionar conteúdo antes do conteúdo do elemento selecionado.*/
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;/*O position Absolute é um grande quebra galho no CSS. Com ele você pode posicionar qualquer elemento de acordo com o elemento pai que tenha um position diferente de static.*/
+  top: -16.8%;/*Deslocamento do topo*/
+  left: 16.7%;/*Deslocamento para esquerda*/
+  z-index: 0;/*z-index so e abilitado quando eu uso o position*/
+
+}
+
+#home .image img {
+  position: relative;/*Utilizando o position Relative o elemento passa a aceitar as propriedades Top, Bottom, Left e Right. Com elas você pode alterar o posicionamento do elemento*/
+  right: 2.93rem;
+}
+
+#home .image img,
+#home .image::before {
+  border-radius: 0.25rem;
+}
+
+#home .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+#home .text h1 {
+  margin-bottom: 1rem;
+}
+
+#home .text p {
+  margin-bottom: 2rem;
+  max-width: 100%;
+}
