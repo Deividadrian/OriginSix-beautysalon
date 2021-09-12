@@ -6,16 +6,16 @@
 }
 
 ul {
-  list-style: none;/*Retirando todos os pontinhos dos menus*/
+  list-style: none; /*Retirando todos os pontinhos dos menus*/
 }
 
 img {
-  width: 100%;/*Toda imagem deve seguir 100% de larura*/
-  height: auto;/*Toda imagem deve ter a autura automatica*/
+  width: 100%; /*Toda imagem deve seguir 100% de larura*/
+  height: auto; /*Toda imagem deve ter a autura automatica*/
 }
 
 a {
-  text-decoration: none;/*Resetando as cores de todos os links*/
+  text-decoration: none; /*Resetando as cores de todos os links*/
 }
 
 /*============VARIABLES===============*/
@@ -36,44 +36,46 @@ a {
 
 /*============BASE===============*/
 body {
-  font: 400 1rem 'DM Sans' , sans-serif; /*400 peso da fonte - 1rem tamanho normal da fonte - */
+  font: 400 1rem 'DM Sans', sans-serif; /*400 peso da fonte - 1rem tamanho normal da fonte - */
   background: var(--body-color);
   color: var(--text-color);
-  -webkit-font-smoothing: antialiased;/*A propriedade CSS controla a aplicação de suavização de borda quando as fontes são renderizadas.webkit: se o navegador é um tipo webkit(o Google chrome está abilitado o webkit não esta abilitado em todos os navegadores) font-smooth = suavização de fonte / antialiased = suavizado*/
+  -webkit-font-smoothing: antialiased; /*A propriedade CSS controla a aplicação de suavização de borda quando as fontes são renderizadas.webkit: se o navegador é um tipo webkit(o Google chrome está abilitado o webkit não esta abilitado em todos os navegadores) font-smooth = suavização de fonte / antialiased = suavizado*/
 }
 .title {
   font: 700 1.875rem 'Poppins', sans-serif;
   color: var(--title-color);
-  -webkit-font-smoothing: auto;/*A propriedade CSS controla a aplicação de suavização de borda quando as fontes são renderizadas.webkit: se o navegador é um tipo webkit(o Google chrome está abilitado o webkit não esta abilitado em todos os navegadores)*/
+  -webkit-font-smoothing: auto; /*A propriedade CSS controla a aplicação de suavização de borda quando as fontes são renderizadas.webkit: se o navegador é um tipo webkit(o Google chrome está abilitado o webkit não esta abilitado em todos os navegadores)*/
 }
 
-.button{
+.button {
   background: var(--base-color);
   color: var(--text-color-light);
   height: 3.5rem;
   width: 13.37rem;
-  display: inline-flex;/*A tag (a) tem uma propriedade por padrão (isplay: inline) que não permite alterar a altura e largura  assim como a tag (span) */
+  display: inline-flex; /*A tag (a) tem uma propriedade por padrão (isplay: inline) que não permite alterar a altura e largura  assim como a tag (span) */
   align-items: center; /*Desbloqueado pelo flex do display: inline-flex acima */
   padding: 0 2rem;
   border-radius: 0.25rem;
-  font: 500 1rem "DM Sans", sans-serif;
+  font: 500 1rem 'DM Sans', sans-serif;
   transition: backgroud 0.3s; /*Transição permitida apos usar o :hover / transition = transição / backgroud = fundo/ 0.3s tempo de transição*/
 }
 
-.button:hover {/*hover - Elemento com o mouse posicionado sobre ele*/
+.button:hover {
+  /*hover - Elemento com o mouse posicionado sobre ele*/
   background: var(--base-color-alt);
 }
 
 .divider-1 {
   height: 1px;
   background: linear-gradient(
-  270deg, 
-  hsla(var(--hue)159, 36%, 57%, 1) 0%, 
-  hsla(var(--hue)159, 65%, 88%, 0.34) 100% );/*linear-gradient é uma função que cria uma imagem que consiste em uma transição progressiva entre duas ou mais cores ao longo de uma linha reta. Seu resultado é um objeto do tipo de dados, que é um tipo especial de .linear-gradient()*/
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1),
+    hsla(var(--hue), 65%, 88%, 0.34)
+  ); /*linear-gradient é uma função que cria uma imagem que consiste em uma transição progressiva entre duas ou mais cores ao longo de uma linha reta. Seu resultado é um objeto do tipo de dados, que é um tipo especial de .linear-gradient()*/
 }
 /*============LAYOUT===============*/
 #header {
-  border-bottom: 1px solid #E4E4E4; /*Borda (border) a Baixo (bottom)*/
+  border-bottom: 1px solid #e4e4e4; /*Borda (border) a Baixo (bottom)*/
   margin-bottom: 2rem;
   display: flex;
 
@@ -86,7 +88,9 @@ body {
 }
 
 main {
-  margin-top: calc(var(--header-height) + 2rem); /*calc  faz um função (cálculo)*/
+  margin-top: calc(
+    var(--header-height) + 2rem
+  ); /*calc  faz um função (cálculo)*/
 }
 
 /*============LOGO===============*/
@@ -102,14 +106,16 @@ main {
 
 /*============NAVIGATION===============*/
 
-nav { /*Navegação*/
-  height: var(--header-height); /*Altura: 4.5rem -- rem(Unidade de medida RELATIVA - ou seja RESPONSIVA) 72px/16=4,5rem (r = root, em= element)*/
-  align-items: center;/*Alinhamento de itens*/
+nav {
+  /*Navegação*/
+  height: var(
+    --header-height
+  ); /*Altura: 4.5rem -- rem(Unidade de medida RELATIVA - ou seja RESPONSIVA) 72px/16=4,5rem (r = root, em= element)*/
+  align-items: center; /*Alinhamento de itens*/
   display: flex; /*Define o elemento como um flex container, tornando os seus filhos flex-itens.*/
-  justify-content: space-between;/*Justificando o conteudo: espaço entre*/
+  justify-content: space-between; /*Justificando o conteudo: espaço entre*/
   width: 100%;
 }
-
 
 nav ul li {
   text-align: center;
@@ -120,12 +126,14 @@ nav ul li a {
   position: relative;
 }
 
-nav ul li a:hover { /*Quando passar o mouse em cima do menu ele muda de cor*/
+nav ul li a:hover {
+  /*Quando passar o mouse em cima do menu ele muda de cor*/
   color: var(--base-color);
 }
 
-nav ul li a::after { /*after = Apos  (::after = é um sudo element)/ Apos o conteudo do 'a com o mouse e cima :hover'*/
-  content: "";/*todo sudo element tenho que colocar o content*/
+nav ul li a::after {
+  /*after = Apos  (::after = é um sudo element)/ Apos o conteudo do 'a com o mouse e cima :hover'*/
+  content: ''; /*todo sudo element tenho que colocar o content*/
   width: 0%;
   height: 2px;
   background: var(--base-color);
@@ -141,15 +149,16 @@ nav ul li a:hover::after {
   width: 100%;
 }
 
-nav .menu{
-  opacity: 0;/*Opacidade*/
+nav .menu {
+  opacity: 0; /*Opacidade*/
   visibility: hidden; /*visibility:hidden deixa de mostrar o elemento, ou seja, ele deixa de ser visível na página mas seu espaço continua ocupado, ou seja, o layout da página não é alterado por causa disto. É como você apagasse uma luz ali mas a lâmpada continua lá.*/
 }
 
 /* Só será usado esses style quando for mostrado o menu.Quando for acrescentado a classe show*/
-nav.show .menu {/*nav receber uma classe show*/
+nav.show .menu {
+  /*nav receber uma classe show*/
   opacity: 1;
-  visibility: visible;/*visible (A caixa do elemento é visíve)*/
+  visibility: visible; /*visible (A caixa do elemento é visíve)*/
 
   background: var(--body-color);
   height: 100vh; /*Vh (viewport height = altura da janela de visualização) 100 pedaços da viewport*/
@@ -160,12 +169,12 @@ nav.show .menu {/*nav receber uma classe show*/
   left: 0;
 }
 
-nav.show .menu{
+nav.show .menu {
   display: grid;
   place-content: center; /*Centraliza todos os itens no centro da tela*/
 }
 
-nav.show ul.grid { 
+nav.show ul.grid {
   gap: 4rem;
 }
 
@@ -173,10 +182,11 @@ nav.show ul.grid {
 .toggle {
   color: var(--base-color);
   font-size: 1.5rem;
-  cursor: pointer;/*Quando estiver com o mouse em cima do icone ele mudar para a mãozinha*/
+  cursor: pointer; /*Quando estiver com o mouse em cima do icone ele mudar para a mãozinha*/
 }
 
-nav .icon-close { /*icone 'X' que fecha o menu*/
+nav .icon-close {
+  /*icone 'X' que fecha o menu*/
   visibility: hidden;
   opacity: 0;
 
@@ -190,7 +200,6 @@ nav.show div.icon-close {
   opacity: 1;
 }
 
-
 /*============HOME===============*/
 .container {
   margin-left: 1.5rem; /*margin-left(direito)*/
@@ -198,7 +207,7 @@ nav.show div.icon-close {
 }
 
 .grid {
-  display: grid;/*Vai abilitar novas funcionalidades no CSS para deixar mais flexivel*/
+  display: grid; /*Vai abilitar novas funcionalidades no CSS para deixar mais flexivel*/
   gap: 2rem;
 }
 
@@ -206,8 +215,12 @@ nav.show div.icon-close {
   padding: 5rem 0;
 }
 
+.section .title {
+  margin-bottom: 1rem;
+}
+
 #home {
-  overflow: hidden;/*overflow = quando o conteúdo de um elemento é muito grande para caber em seu contexto de formatação de bloco - em ambas as direções/ hidden = O conteúdo é cortado, se necessário, para caber na caixa de preenchimento. Nenhuma barra de rolagem é fornecida e nenhum suporte para permitir que o usuário role (como arrastando ou usando uma roda de rolagem) é permitido*/
+  overflow: hidden; /*overflow = quando o conteúdo de um elemento é muito grande para caber em seu contexto de formatação de bloco - em ambas as direções/ hidden = O conteúdo é cortado, se necessário, para caber na caixa de preenchimento. Nenhuma barra de rolagem é fornecida e nenhum suporte para permitir que o usuário role (como arrastando ou usando uma roda de rolagem) é permitido*/
 }
 #home .container {
   margin: 0;
@@ -217,20 +230,20 @@ nav.show div.icon-close {
   position: relative;
 }
 
-#home .image::before {/*A declaração do pseudo-elemento ::before em um seletor cria um falso elemento (um elemento fictício) que nos permite adicionar conteúdo antes do conteúdo do elemento selecionado.*/
+#home .image::before {
+  /*A declaração do pseudo-elemento ::before em um seletor cria um falso elemento (um elemento fictício) que nos permite adicionar conteúdo antes do conteúdo do elemento selecionado.*/
   content: '';
   height: 100%;
   width: 100%;
   background: var(--base-color-second);
-  position: absolute;/*O position Absolute é um grande quebra galho no CSS. Com ele você pode posicionar qualquer elemento de acordo com o elemento pai que tenha um position diferente de static.*/
-  top: -16.8%;/*Deslocamento do topo*/
-  left: 16.7%;/*Deslocamento para esquerda*/
-  z-index: 0;/*z-index so e abilitado quando eu uso o position*/
-
+  position: absolute; /*O position Absolute é um grande quebra galho no CSS. Com ele você pode posicionar qualquer elemento de acordo com o elemento pai que tenha um position diferente de static.*/
+  top: -16.8%; /*Deslocamento do topo*/
+  left: 16.7%; /*Deslocamento para esquerda*/
+  z-index: 0; /*z-index so e abilitado quando eu uso o position*/
 }
 
 #home .image img {
-  position: relative;/*Utilizando o position Relative o elemento passa a aceitar as propriedades Top, Bottom, Left e Right. Com elas você pode alterar o posicionamento do elemento*/
+  position: relative; /*Utilizando o position Relative o elemento passa a aceitar as propriedades Top, Bottom, Left e Right. Com elas você pode alterar o posicionamento do elemento*/
   right: 2.93rem;
 }
 
@@ -252,4 +265,50 @@ nav.show div.icon-close {
 #home .text p {
   margin-bottom: 2rem;
   max-width: 100%;
+}
+
+/*============ABOUT===============*/
+#about {
+  background: white;
+}
+#about .container {
+  margin: 0;
+}
+
+#about .image {
+  position: relative;
+}
+
+#about .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -8.3%;
+  left: -33%;
+  z-index: 0;
+}
+
+#about .image img {
+  position: relative;
+}
+
+#about .image img,
+#about .image::before {
+  border-radius: 0.25rem;
+}
+
+#about .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.divider-2 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 65%, 88%, 0.34),
+    hsla(var(--hue), 36%, 57%, 1)
+  );
 }
