@@ -115,6 +115,32 @@ nav ul li {
   text-align: center;
 }
 
+nav ul li a {
+  transition: color 0.2s; /*trasição da mudansa de cor quando o mouse está em cima*/
+  position: relative;
+}
+
+nav ul li a:hover { /*Quando passar o mouse em cima do menu ele muda de cor*/
+  color: var(--base-color);
+}
+
+nav ul li a::after { /*after = Apos  (::after = é um sudo element)/ Apos o conteudo do 'a com o mouse e cima :hover'*/
+  content: "";/*todo sudo element tenho que colocar o content*/
+  width: 0%;
+  height: 2px;
+  background: var(--base-color);
+
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+
+  transition: width 0.2s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
 nav .menu{
   opacity: 0;/*Opacidade*/
   visibility: hidden; /*visibility:hidden deixa de mostrar o elemento, ou seja, ele deixa de ser visível na página mas seu espaço continua ocupado, ou seja, o layout da página não é alterado por causa disto. É como você apagasse uma luz ali mas a lâmpada continua lá.*/
@@ -141,6 +167,27 @@ nav.show .menu{
 
 nav.show ul.grid { 
   gap: 4rem;
+}
+
+/*  toggle menu  */
+.toggle {
+  color: var(--base-color);
+  font-size: 1.5rem;
+  cursor: pointer;/*Quando estiver com o mouse em cima do icone ele mudar para a mãozinha*/
+}
+
+nav .icon-close { /*icone 'X' que fecha o menu*/
+  visibility: hidden;
+  opacity: 0;
+
+  position: absolute;
+  right: 1.5rem;
+  /*trasição bacana*/
+}
+
+nav.show div.icon-close {
+  visibility: visible;
+  opacity: 1;
 }
 
 
