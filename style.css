@@ -35,6 +35,10 @@ a {
 }
 
 /*============BASE===============*/
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font: 400 1rem 'DM Sans', sans-serif; /*400 peso da fonte - 1rem tamanho normal da fonte - */
   background: var(--body-color);
