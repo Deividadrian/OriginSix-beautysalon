@@ -91,6 +91,10 @@ body {
   background: var(--body-color);
 }
 
+#header.scroll {
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15); /*Leve sombra no header*/
+}
+
 main {
   margin-top: calc(
     var(--header-height) + 2rem
@@ -156,9 +160,15 @@ nav ul li a:hover::after {
 nav .menu {
   opacity: 0; /*Opacidade*/
   visibility: hidden; /*visibility:hidden deixa de mostrar o elemento, ou seja, ele deixa de ser visível na página mas seu espaço continua ocupado, ou seja, o layout da página não é alterado por causa disto. É como você apagasse uma luz ali mas a lâmpada continua lá.*/
+  top: -20rem;
+  transition: 0.2s;
 }
 
-/* Só será usado esses style quando for mostrado o menu.Quando for acrescentado a classe show*/
+nav .menu ul {
+  display: none;
+}
+
+/* =====Só será usado esses style quando for mostrado o menu.Quando for acrescentado a classe show ====*/
 nav.show .menu {
   /*nav receber uma classe show*/
   opacity: 1;
@@ -171,11 +181,13 @@ nav.show .menu {
   position: fixed;
   top: 0;
   left: 0;
-}
 
-nav.show .menu {
   display: grid;
   place-content: center; /*Centraliza todos os itens no centro da tela*/
+}
+
+nav.show .menu ul {
+  display: grid;
 }
 
 nav.show ul.grid {
@@ -196,12 +208,14 @@ nav .icon-close {
 
   position: absolute;
   right: 1.5rem;
-  /*trasição bacana*/
+  top: -1.5rem;/*O icone menu e fechar menu vai de -1.5rem até 1.5rem fazendo um efeito que ele venha de cima*/
+  transition: .2s; /*Com a transição de 2 segundos o icone do menu esta pegandoa a opacidade do nav.show*/
 }
 
 nav.show div.icon-close {
   visibility: visible;
   opacity: 1;
+  top: 1.5rem;/*O icone menu e fechar menu vai de -1.5rem até 1.5rem fazendo um efeito que ele venha de cima*/
 }
 
 /*============HOME===============*/

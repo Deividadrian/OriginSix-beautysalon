@@ -17,3 +17,18 @@ for (const link of links) {
     nav.classList.remove('show')
   })
 }/*Para cada constante link de links  adiciona um evento de click (link.addEventListener('click') este elemento vai rodar uma function (function (){nav.classList.remove('show')}) que remova a classe Show*/
+
+/*Mudar o header da pagina quando der scroll */
+
+const header = document.querySelector('#header')
+const navHeight = header.offsetHeight
+
+window.addEventListener('scroll', function(){
+  if(window.scrollY >= navHeight){
+    // scroll é menor que a altura do header
+    header.classList.add('scroll')
+  }else {
+    //menor que a altura do header 
+    header.classList.remove('scroll')
+  }
+})
