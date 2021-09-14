@@ -219,6 +219,14 @@ nav.show div.icon-close {
   margin-bottom: 1rem;
 }
 
+.section header {
+  margin-bottom: 4rem;
+}
+
+.section header strong {
+  color: var(--base-color);
+}
+
 #home {
   overflow: hidden; /*overflow = quando o conteúdo de um elemento é muito grande para caber em seu contexto de formatação de bloco - em ambas as direções/ hidden = O conteúdo é cortado, se necessário, para caber na caixa de preenchimento. Nenhuma barra de rolagem é fornecida e nenhum suporte para permitir que o usuário role (como arrastando ou usando uma roda de rolagem) é permitido*/
 }
@@ -311,4 +319,29 @@ nav.show div.icon-close {
     hsla(var(--hue), 65%, 88%, 0.34),
     hsla(var(--hue), 36%, 57%, 1)
   );
+}
+
+/*============SERVICES===============*/
+.cards.grid {
+  gap: 1.5rem; /*Espaços entre os cards de 1.5rem*/
+}
+
+.card {
+  padding: 3.625rem 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08); /*Sombra dos cards*/
+  border-bottom: 0.25rem solid var(--base-color); /*Borda solida em baixo de cada card*/
+  border-radius: 0.25rem 0.25rem 0 0; /*Bordas superiores arredondadas*/
+  text-align: center;
+}
+
+.card i {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 5rem; /*Tamanho dos icone dos cards*/
+  color: var(--base-color);
+}
+
+.card .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
 }
