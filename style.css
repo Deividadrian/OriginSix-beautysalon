@@ -58,7 +58,7 @@ body {
   width: 13.37rem;
   display: inline-flex; /*A tag (a) tem uma propriedade por padrão (isplay: inline) que não permite alterar a altura e largura  assim como a tag (span) */
   align-items: center; /*Desbloqueado pelo flex do display: inline-flex acima */
-  padding: 0 2rem;
+  padding: 0rem 2rem;
   border-radius: 0.25rem;
   font: 500 1rem 'DM Sans', sans-serif;
   transition: backgroud 0.3s; /*Transição permitida apos usar o :hover / transition = transição / backgroud = fundo/ 0.3s tempo de transição*/
@@ -434,3 +434,38 @@ nav.show div.icon-close {
 
 /*============ CONTACT ===============*/
 
+#contact .grid {
+  gap: 4rem;
+}
+
+#contact .text p{
+  margin-bottom: 2rem;
+}
+
+#contact .button {
+  padding: 0 1rem;
+}
+
+#contact .button i {
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+#contact ul.grid {
+  gap: 2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+}
+
+#contact ul li i {
+  color: var(--base-color);
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+#footer {
+  background: var(--base-color);
+}
