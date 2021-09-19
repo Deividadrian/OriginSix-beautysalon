@@ -32,3 +32,14 @@ window.addEventListener('scroll', function(){
     header.classList.remove('scroll')
   }
 })
+
+/* Testimonials slider com swiper*/
+//Usando a API da biblioteca swiper
+const swiper = new Swiper('.swiper', {/*Está criando uma constante swiper, que esta recebendo um novo swiper com um container como primeiro argumento no formato de string '.swiper'e o segundo argumento e um objeto {}*/
+  slidesPerView: 1, // Propriedade que dita quantos slides que quero ver.
+  pagination: { /* Um objeto que tem um elemento o elemento el: com um nome do elemento '.swiper-pagination'*/
+    el: '.swiper-pagination'
+  },
+  mousewheel: true, //Move o slider com a rodinha do mouse
+  keyboard: true //Move com as setas do teclado
+})
