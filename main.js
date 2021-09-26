@@ -41,7 +41,16 @@ const swiper = new Swiper('.swiper', {/*Está criando uma constante swiper, que 
     el: '.swiper-pagination'
   },
   mousewheel: true, //Move o slider com a rodinha do mouse
-  keyboard: true //Move com as setas do teclado
+  keyboard: true, //Move com as setas do teclado
+
+  /* ========= RESPONSIVO ==============*/
+/*========== MEDIA QUERIES ===========*/
+  breakpoints: { 
+    767:{
+      slidesPerView: 2,
+      setWrapperSize: true
+    }
+  }
 })
 
 /* ScrollReavel : Mostrar elementos quando der scroll na página*/
@@ -58,11 +67,30 @@ scrollReveal.reveal(
   #abaut .image, #about .text,
   #services header, #services .card,
   #testimonials header, #testimonials .testimonials
-  #contact .text, #contact .links
+  #contact .text, #contact .links,
+  footer .brand, footer .social
   `, { interval: 100})
+
+
+  /* Menu ativo conforme a seção visivel da página*/
+const sections = document.querySelectorAll('main sections[id]') //sections[id] = Seleciona todas as secões que tenha um ID
+function activateMenuAtCurrentSection() {
+  
+}
 
 
   /* Botão voltar para o topo  */
 
   const backToTopButton = document.querySelector('.back-to-top')
+  const homeHeight = home.offsetHeight
+
+  window.addEventListener('scroll', function (){
+    if (window.scrollY >= homeHeight) {
+      backToTopButton.classList.add('show')
+    }else {
+      backToTopButton.classList.remove('show')
+    }
+  })
+  
+
   

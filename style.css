@@ -32,6 +32,13 @@ a {
   --text-color: hsl(0 0% 46%);
   --text-color-light: hsl(0 0% 98%);
   --body-color: hsl(0 0% 98%);
+
+  /* fonts */
+  --title-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'DM Sans', sans-serif;
 }
 
 /*============BASE===============*/
@@ -40,13 +47,13 @@ html {
 }
 
 body {
-  font: 400 1rem 'DM Sans', sans-serif; /*400 peso da fonte - 1rem tamanho normal da fonte - */
+  font: 400 1rem var(--body-font); /*400 peso da fonte - 1rem tamanho normal da fonte - */
   background: var(--body-color);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased; /*A propriedade CSS controla a aplicação de suavização de borda quando as fontes são renderizadas.webkit: se o navegador é um tipo webkit(o Google chrome está abilitado o webkit não esta abilitado em todos os navegadores) font-smooth = suavização de fonte / antialiased = suavizado*/
 }
 .title {
-  font: 700 1.875rem 'Poppins', sans-serif;
+  font: 700 var(--title-font-size) var(--title-font);
   color: var(--title-color);
   -webkit-font-smoothing: auto; /*A propriedade CSS controla a aplicação de suavização de borda quando as fontes são renderizadas.webkit: se o navegador é um tipo webkit(o Google chrome está abilitado o webkit não esta abilitado em todos os navegadores)*/
 }
@@ -60,7 +67,7 @@ body {
   align-items: center; /*Desbloqueado pelo flex do display: inline-flex acima */
   padding: 0rem 2rem;
   border-radius: 0.25rem;
-  font: 500 1rem 'DM Sans', sans-serif;
+  font: 500 1rem var(--body-font);
   transition: backgroud 0.3s; /*Transição permitida apos usar o :hover / transition = transição / backgroud = fundo/ 0.3s tempo de transição*/
 }
 
@@ -95,16 +102,11 @@ body {
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15); /*Leve sombra no header*/
 }
 
-main {
-  margin-top: calc(
-    var(--header-height) + 2rem
-  ); /*calc  faz um função (cálculo)*/
-}
 
 /*============LOGO===============*/
 
 .logo {
-  font: 700 1.31rem 'Poppins', sans-serif;
+  font: 700 1.31rem var(--title-font);
   color: var(--title-color);
 }
 
@@ -234,11 +236,15 @@ nav.show div.icon-close {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: calc(5rem + var(--header-height)) 0;
 }
 
 .section .title {
   margin-bottom: 1rem;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size);
 }
 
 .section header {
@@ -480,6 +486,10 @@ footer {
   background: var(--base-color);
 }
 
+footer.section {
+  padding: 4rem 0;
+}
+
 footer .logo {
   display: inline-block;
   margin-bottom: 1.5rem;
@@ -497,6 +507,12 @@ footer i {
 
 footer .social a {
   margin-right: 2rem;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+footer .social a:hover {
+  transform: translateY(-8px);
 }
 
 /* Back to top  */
@@ -519,9 +535,140 @@ footer .social a {
   opacity: 0;
 
   transition: 0.3s;
+  transform: translateY(100%);
 }
 
 .back-to-top.show {
   visibility: visible;
   opacity: 1;
+  transform: translateY(0);
 }
+
+/* ========= RESPONSIVO ==============*/
+/*========== MEDIA QUERIES ===========*/
+/*  extra large devices: 1200 > */
+@media (min-width: 1200px) {
+  /*reusanble classes*/
+  .container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-left: auto;
+  }
+
+  .section {
+    padding: 10rem 0;
+  }
+
+  .section header,
+  #testimonials header {
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button {
+    height: 3.125rem;
+  }
+
+/* navigation */
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+    nav .menu ul {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav .menu ul li a.title {
+      font: 400 1rem var(--body-font);
+    }
+
+    nav .icon-menu {
+      display: none;
+    }
+
+    /* Layout */
+    main {
+      margin-top: var(--header-height); /*calc  faz um função (cálculo)*/
+    }
+
+    /*home*/
+    #home .container {
+      grid-auto-flow: column;
+      justify-content: space-between;
+      margin: 0 auto;
+    }
+
+    #home .image {
+      order: 1;
+    }
+
+    #home .text {
+      order: 0;
+      max-width: 24rem;
+      text-align: left;
+    }
+
+    /* About */
+    #about .container {
+      margin: 0 auto;
+      grid-auto-flow: column;
+    }
+
+    /* Services */
+    .cards {
+      grid-template-columns: 1fr 1fr 1fr ; /* 1fr = fração de cada card (flexivel) */
+    }
+
+    .card {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+    
+    /* Testimonials */
+    #testimonials .container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    /* Contact */
+    #contact .container {
+      grid-auto-flow: column;
+      align-items: center;
+    }
+
+    #contact .text {
+      max-width: 25rem;
+    }
+
+    /* Footer */
+
+    footer.section {
+      padding: 3.75rem;
+    }
+
+    footer .container {
+      grid-auto-flow: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer .logo {
+      font-size: 2.25rem;
+    }
+
+}
+/*  large devices: 1023 >*/
+/*  large devices: 992 >*/
+@media (min-width: 992px) {  /*At-rules / rules = regras*/
+  :root {
+    --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
+  }
+}
+
+/*  medium devices 765 >*/
