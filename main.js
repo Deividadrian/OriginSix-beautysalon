@@ -23,7 +23,7 @@ for (const link of links) {
 const header = document.querySelector('#header')
 const navHeight = header.offsetHeight
 
-window.addEventListener('scroll', function(){
+function changeHeaderWhenScroll() {
   if(window.scrollY >= navHeight){
     // scroll é menor que a altura do header
     header.classList.add('scroll')
@@ -31,7 +31,8 @@ window.addEventListener('scroll', function(){
     //menor que a altura do header 
     header.classList.remove('scroll')
   }
-})
+}
+
 
 /* Testimonials slider com swiper*/
 //Usando a API da biblioteca swiper
@@ -72,25 +73,49 @@ scrollReveal.reveal(
   `, { interval: 100})
 
 
-  /* Menu ativo conforme a seção visivel da página*/
-const sections = document.querySelectorAll('main sections[id]') //sections[id] = Seleciona todas as secões que tenha um ID
-function activateMenuAtCurrentSection() {
-  
-}
-
 
   /* Botão voltar para o topo  */
 
-  const backToTopButton = document.querySelector('.back-to-top')
-  const homeHeight = home.offsetHeight
+const backToTopButton = document.querySelector('.back-to-top')
 
-  window.addEventListener('scroll', function (){
-    if (window.scrollY >= homeHeight) {
-      backToTopButton.classList.add('show')
-    }else {
-      backToTopButton.classList.remove('show')
+function backToTop() {
+  if (window.scrollY >= 560) {
+    backToTopButton.classList.add('show')
+  }else {
+    backToTopButton.classList.remove('show')
+  }
+  }
+
+
+/* Menu ativo conforme a seção visivel da página*/
+const sections = document.querySelectorAll('main section[id]') //sections[id] = Seleciona todas as secões que tenha um ID
+function activateMenuAtCurrentSection() {
+    
+const checkpoint = window.pageYOffset + (window.innerHeight / 8) * 4 /* Pega o tamanho da tela divide ela por 8 multiplica por 4 e soma ao deslocamento da tela em Y = window.pageYOffset  */
+
+  for (const section of sections ) {
+    const sectionTop = section.offsetTop // Pega o topo da seção
+    const sectionHeight = section.offsetHeight // Pega a autula da seção
+    const sectionId = section.getAttribute('id') // Pega o Id da seção
+
+    const checkpointStart = checkpoint >= sectionTop
+    const checkpointEnd = checkpoint <= sectionTop + sectionHeight
+
+    if (checkpointStart && checkpointEnd ) {
+      document
+        .querySelector('nav ul li a[href*=' + sectionId + ']')
+        .classList.add('active')
+    } else {
+      document
+      .querySelector('nav ul li a[href*=' + sectionId + ']')
+      .classList.remove('active')
     }
-  })
-  
+  }
+}
 
-  
+/* When Scroll */
+window.addEventListener('scroll', function () {
+  changeHeaderWhenScroll()
+  backToTop()
+  activateMenuAtCurrentSection()
+})
